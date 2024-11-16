@@ -5,12 +5,17 @@ from django.contrib.auth.models import User
 
 class Genre(models.Model):
     name = models.CharField(max_length=80)
+    def __str__(self):
+        return self.name
+    
     
 class Person(models.Model):
     name = models.CharField(max_length=128)
     
 class Job(models.Model):
     name = models.CharField(max_length=128)
+    def __str__(self):
+        return self.name
     
 class Movie(models.Model):
     title = models.CharField(max_length=200)
@@ -23,11 +28,12 @@ class Movie(models.Model):
     poster_path = models.URLField(blank=True)
     genres = models.ManyToManyField(Genre)
     credits = models.ManyToManyField(Person, through='MovieCredit')
+    def __str__(self):
+        return self.title
     
 class MovieCredit(models.Model):
     person = models.ForeignKey(Person, on_delete=models.CASCADE)
     movie = models.ForeignKey(Movie, on_delete=models.CASCADE)
     job = models.ForeignKey(Job, on_delete=models.CASCADE)
-    
     
     

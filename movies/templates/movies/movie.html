@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <title>Página de Ejemplo</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <script src="https://cdn.tailwindcss.com"></script>
+
+    </head>
+<body class="bg-gray-900 text-gray-100">
+
+  <header class="page-header bg-gray-800 p-5 text-center">
+        <h1 class="font-bold text-3xl text-yellow-500">My Movies</h1>
+    </header>
+
+    <!-- Contenido de la peli -->
+    <article class="container mx-auto p-6">
+        <div class="top-movie flex flex-wrap sm:flex-nowrap gap-6 justify-center">
+            <img class="poster w-[300px] h-[450px] object-cover rounded-lg shadow-lg" src="{{ movie.poster_path }}" alt="The Imitation Game poster">
+          
+          
+                <!-- info -->
+            <div class="movie-details pl-6 flex-grow basis-1 ">
+                <h1 class="movie-title font-bold text-3xl mb-2 text-yellow-500">{{movie.title}}</h1>
+                <iframe class="w-full max-w-lg aspect-video rounded-lg shadow-lg" src="https://www.youtube.com/embed/nuPZUUED5uk?si=fmqyJjjXY8Ht85gh" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                
+                <div class="movie-info mt-4">
+                    <p class="text-lg">12/19/2014 - 1h 53m</p>
+                    <ul class="movie-genre flex gap-2 mt-2">
+                        {% for g in movie.genres.all %}
+                        <li class="border-r-2 border-gray-500 pr-2">{{g.name}}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+
+                <h2 class="font-bold text-xl mt-4">Overview</h2>
+                <p class="mt-2">{{ movie.overview }}</p>
+
+                <details class="mt-4">
+                    <summary class="cursor-pointer text-yellow-500">Production Details</summary>
+                    <p class="mt-2">Budget: $14,000,000.00</p>
+                    <p>Revenue: $233,555,708.00</p>
+                </details>
+            </div>
+        </div>
+
+      
+      <!--Cast-->
+      <h2 class="text-2xl font-bold mt-10 mb-4">Top Billed Cast</h2>
+        <div class=" ml-5 flex   overflow-x-auto"> 
+            <div class="cast flex gap-4 overflow-x-auto">
+              <!--aqui esta el link-->
+            <div class="bg-gray-800 w-[160px] h-[300px] rounded-md flex-none mr-2">
+                <img class="h-[225px] w-full object-cover rounded-t-lg" src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/fBEucxECxGLKVHBznO0qHtCGiMO.jpg" alt="Benedict Cumberbatch">
+                <a href="https://codepen.io/Thejimmy246/full/poMRwLP" class="p-2 text-center font-bold">Benedict Cumberbatch</a>
+            </div>
+            <div class="bg-gray-800 w-[160px] h-[300px] rounded-md flex-none mr-2"> 
+                <img class= "h-[225px] w-[160px] rounded-md" src="https://media.themoviedb.org/t/p/w300_and_h450_bestv2/bRC1B2VwV0wK3ElciFAK6QZf2wD.jpg" alt="Keira Knightley photo">
+                <h1 class="p-1 font-bold"> Keira Knightley</h1>
+            </div>
+            <div class="bg-gray-800 w-[160px] h-[300px] rounded-md flex-none mr-2"> 
+                <img class="h-[225px] w-[160px] rounded-md" src="https://media.themoviedb.org/t/p/w138_and_h175_face/dBVaUFK1pxGQuMfM62lWRq8DpkE.jpg" alt="Matthew Goode">
+                <h1 class="p-1 font-bold"> Matthew Goode</h1>
+            </div>
+            <div class="bg-gray-800 w-[160px] h-[300px] rounded-md flex-none mr-2"> 
+                <img class="h-[225px] w-[160px] rounded-md" src="https://media.themoviedb.org/t/p/w138_and_h175_face/8aEABMeHXOozwE5DrMxUlCM9mpG.jpg" alt="Rory Kinnear">
+                <h1 class="p-1 font-bold"> Rory Kinnear</h1>
+            </div>
+            <div class="bg-gray-800 w-[160px] h-[300px] rounded-md flex-none mr-2"> 
+                <img class="h-[225px] w-[160px] rounded-md" src="https://media.themoviedb.org/t/p/w138_and_h175_face/cJZSyKNUKwdNPEgkt2ocXohtUBH.jpg" alt="Allen Leech">
+                <h1 class="p-1 font-bold"> Allen Leech</h1>
+            </div>
+            <div class="bg-gray-800 w-[160px] h-[300px] rounded-md flex-none mr-2"> 
+                <img class="h-[225px] w-[160px] rounded-md" src="https://media.themoviedb.org/t/p/w138_and_h175_face/bB98Y1MkIlwJBWIlR17hd6Jwxwd.jpg" alt="Matthew Beard">
+                <h1 class="p-1 font-bold"> Matthew Beard</h1>
+            </div>
+            <div class="bg-gray-800 w-[160px] h-[300px] rounded-md flex-none mr-2"> 
+                <img class="h-[225px] w-[160px]  rounded-md" src="https://media.themoviedb.org/t/p/w138_and_h175_face/28ElvRC5ftOSzZBFM0cn4XrwH36.jpg" alt="Charles Dance">
+                <h1 class="p-1 font-bold"> Charles Dance</h1>
+            </div>
+            <div class="bg-gray-800 w-[160px] h-[300px] rounded-md flex-none mr-2"> 
+                <img class="h-[225px] w-[160px] rounded-md" src="https://media.themoviedb.org/t/p/w138_and_h175_face/3cNmatYsoifytg7TfQhI1EHow3v.jpg" alt="Mark Strong">
+                <h1 class="p-1 font-bold"> Mark Strong</h1>
+            </div>
+          
+          
+        </div>
+    </article>
+
+    <footer>
+        <p> Proyecto de ejemplo de la materia Programación Web</p>
+        <p><a href="github.com\miusuario\elrepo"> GitHub Repository</a></p>
+    </footer>
+
+    </body>
+</html>
