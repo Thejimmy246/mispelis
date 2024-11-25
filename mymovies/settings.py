@@ -38,8 +38,8 @@ print(ALLOWED_HOSTS)
 # Application definition
 
 INSTALLED_APPS = [
-    'movies.apps.MoviesConfig',
     'django.contrib.admin',
+    'users.apps.UsersConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
